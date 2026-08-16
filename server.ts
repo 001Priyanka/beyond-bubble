@@ -25,7 +25,8 @@ async function startServer(): Promise<void> {
     app.use(vite.middlewares);
   } else {
     // In production, serve built frontend from dist
-    const distPath = path.resolve(__dirname, 'dist');
+    // dist/server.mjs is co-located inside dist/, so go one level up to find dist/
+    const distPath = path.resolve(__dirname, '.');
     app.use(express.static(distPath));
     app.get('*', (_req, res) => {
       res.sendFile(path.resolve(distPath, 'index.html'));

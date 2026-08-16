@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: beyond-the-bubble
+    runtime: node
+    plan: free
+    region: oregon
+
+    # Build: install deps, then compile frontend + bundle server
+    buildCommand: npm install && npm run build
+
+    # Start: run the compiled ESM server bundle
+    startCommand: node dist/server.mjs
+
+    # Health check endpoint
+    healthCheckPath: /api/health
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: APP_URL
+        # Set this to your Render URL after first deploy, e.g. https://beyond-the-bubble.onrender.com
+        value: https://beyond-the-bubble.onrender.com
+      - key: MONGODB_URI
+        # Optional — leave empty to run in offline seed-data mode
+        # Add your Atlas URI here if you want persistence
+        value: ""
