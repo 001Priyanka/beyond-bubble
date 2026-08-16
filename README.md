@@ -383,7 +383,7 @@ npm run build
 npm run start
 ```
 
-This builds the React frontend with Vite into `dist/`, then bundles `server.ts` with esbuild into `dist/server.cjs`. The production server serves the static frontend and handles API requests on the same port.
+Vite compiles the React frontend into `dist/`, and esbuild bundles `server.ts` into `dist/server.mjs`. In production the Express server serves the static frontend and handles all API requests on the same port — no separate web server needed.
 
 Set environment variables before running in production:
 
@@ -393,6 +393,52 @@ PORT=3000
 APP_URL=https://yourdomain.com
 MONGODB_URI=<your-atlas-uri>    # optional
 ```
+
+---
+
+## Deployment (Render)
+
+The project includes a `render.yaml` for one-click deployment to [Render](https://render.com).
+
+### Steps
+
+1. Push this repository to GitHub (already done if you cloned it)
+
+2. Go to [render.com](https://render.com) → **New** → **Blueprint**
+
+3. Connect your GitHub account and select the `beyond-bubble` repository
+
+4. Render reads `render.yaml` and pre-fills all settings:
+   - **Build command**: `npm install && npm run build`
+   - **Start command**: `node dist/server.mjs`
+   - **Health check**: `/api/health`
+
+5. Click **Apply** — Render builds and deploys automatically
+
+6. Once deployed, copy your live URL (e.g. `https://beyond-the-bubble.onrender.com`) and update the `APP_URL` environment variable in the Render dashboard under **Environment**
+
+### Environment Variables on Render
+
+| Variable | Value | Notes |
+|---|---|---|
+| `NODE_ENV` | `production` | Set automatically by render.yaml |
+| `PORT` | `10000` | Render's default internal port |
+| `APP_URL` | `https://your-app.onrender.com` | Update after first deploy |
+| `MONGODB_URI` | *(your Atlas URI)* | Optional — leave blank for seed-data mode |
+
+> **Free tier note**: Render free instances spin down after 15 minutes of inactivity. The first request after a cold start takes ~30 seconds. Upgrade to the Starter plan ($7/mo) to keep the instance always-on.
+
+### Manual Deploy (any Node host)
+
+If you prefer a different host (Railway, Fly.io, DigitalOcean, etc.):
+
+```bash
+npm install
+npm run build
+NODE_ENV=production node dist/server.mjs
+```
+
+The app needs no external services — it runs entirely self-contained with local seed data.
 
 ---
 
