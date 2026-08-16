@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  /* ==========================================================================
+     Beyond the Bubble Semantic Design Tokens
+     Warm, editorial, trustworthy aesthetic for digital & media literacy
+     ========================================================================== */
+
+  /* Neutral Surface & Foreground */
+  --background: #F8F9FA;
+  --foreground: #0F172A; /* Deep Navy / Ink */
+  --surface: #FFFFFF;
+  --surface-subtle: #F1F5F9;
+
+  /* Cards & Elevating Surfaces */
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --card-border: #E2E8F0;
+
+  /* Primary Brand (Deep Ink / Navy) */
+  --primary: #0F172A;
+  --primary-hover: #1E293B;
+  --primary-foreground: #F8FAFC;
+
+  /* Editorial Public-Interest Accent Blue (UNESCO / Civic Education inspired) */
+  --accent-blue: #1D63ED;
+  --accent-blue-hover: #174EC0;
+  --accent-blue-subtle: #EFF6FF;
+  --accent-blue-foreground: #FFFFFF;
+
+  /* Secondary & Neutral Tones */
+  --secondary: #F1F5F9;
+  --secondary-hover: #E2E8F0;
+  --secondary-foreground: #1E293B;
+
+  /* Muted Text & Elements */
+  --muted: #F8FAFC;
+  --muted-foreground: #64748B;
+  --muted-border: #E2E8F0;
+
+  /* Borders & Dividers */
+  --border: #E2E8F0;
+  --border-subtle: #F1F5F9;
+  --input: #E2E8F0;
+  --ring: #1D63ED;
+
+  /* Semantic Feedback Tokens */
+  --success: #0D9488;
+  --success-subtle: #F0FDFA;
+  --success-foreground: #115E59;
+
+  --warning: #D97706;
+  --warning-subtle: #FFFBEB;
+  --warning-foreground: #92400E;
+
+  --destructive: #E11D48;
+  --destructive-subtle: #FFF1F2;
+  --destructive-foreground: #9F1239;
+
+  --info: #0284C7;
+  --info-subtle: #F0F9FF;
+  --info-foreground: #075985;
+
+  /* Perspective Category Design Tokens (Neutral, objective, non-judgmental) */
+  --perspective-civic: #0284C7;
+  --perspective-civic-bg: #F0F9FF;
+  --perspective-civic-border: #BAE6FD;
+
+  --perspective-academic: #4F46E5;
+  --perspective-academic-bg: #EEF2FF;
+  --perspective-academic-border: #C7D2FE;
+
+  --perspective-industry: #0D9488;
+  --perspective-industry-bg: #F0FDFA;
+  --perspective-industry-border: #99F6E4;
+
+  --perspective-community: #D97706;
+  --perspective-community-bg: #FFFBEB;
+  --perspective-community-border: #FDE68A;
+
+  --perspective-ethics: #9333EA;
+  --perspective-ethics-bg: #FAF5FF;
+  --perspective-ethics-border: #E9D5FF;
+
+  --perspective-workforce: #475569;
+  --perspective-workforce-bg: #F8FAFC;
+  --perspective-workforce-border: #CBD5E1;
+
+  /* Radius Tokens */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem;   /* 8px */
+  --radius-lg: 0.75rem;  /* 12px */
+  --radius-xl: 1rem;     /* 16px */
+  --radius-full: 9999px;
+}
+
+body {
+  font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+}
+
+/* Editorial Serif for Special Display Quotations and Headlines */
+.font-serif-editorial {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* Custom Scrollbar for subtle clean feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

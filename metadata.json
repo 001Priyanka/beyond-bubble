@@ -1,0 +1,6 @@
+{
+  "name": "Beyond the Bubble",
+  "description": "An interactive media-literacy web application that helps users understand information environments, recognize limited viewpoint diversity, and explore alternative perspectives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
