@@ -2,19 +2,21 @@ import cors from 'cors';
 import helmet from 'helmet';
 import express, { Express } from 'express';
 
+const isDev = process.env.NODE_ENV !== 'production';
+
 export function configureSecurityMiddleware(app: Express): void {
-  // Helmet headers for security (configured to allow Vite inline scripts in development)
+  // Helmet security headers — disable CSP in development to allow Vite inline scripts
   app.use(
     helmet({
-      contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false,
+      contentSecurityPolicy: isDev ? false : undefined,
       crossOriginEmbedderPolicy: false,
     })
   );
 
-  // CORS setup
+  // CORS: allow all origins in development, restrict to same-origin in production
   app.use(
     cors({
-      origin: true,
+      origin: isDev ? true : (process.env.APP_URL || false),
       credentials: true,
     })
   );

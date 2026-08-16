@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Compass, Menu, X, ArrowRight, Sparkles, Shield, Info } from 'lucide-react';
+import { Compass, Menu, X, ArrowRight, Shield } from 'lucide-react';
 import { Button } from '../ui/Button.js';
 import { AboutModal } from '../landing/AboutModal.js';
 import { ROUTES } from '../../../shared/constants.js';
@@ -95,21 +95,6 @@ export function Navbar() {
             >
               About
             </button>
-
-            {/* Subtle Design System link */}
-            <NavLink
-              to={ROUTES.DESIGN_SYSTEM}
-              className={({ isActive }) =>
-                cn(
-                  'px-2.5 py-1.5 rounded-lg text-[11px] font-mono transition-colors text-slate-400 hover:text-blue-600 hover:bg-slate-50 flex items-center gap-1',
-                  isActive && 'text-blue-600 bg-blue-50 font-semibold'
-                )
-              }
-              title="Design System & UI Component Showcase"
-            >
-              <Sparkles className="w-3 h-3" />
-              <span>UI Spec</span>
-            </NavLink>
           </nav>
 
           {/* Desktop Primary CTA Button */}
@@ -183,17 +168,9 @@ export function Navbar() {
                 onClick={() => openAbout('privacy')}
                 className="px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50 text-left cursor-pointer flex items-center justify-between"
               >
-                <span>Privacy & Ethics</span>
+                <span>Privacy &amp; Ethics</span>
                 <Shield className="w-4 h-4 text-emerald-600" />
               </button>
-
-              <NavLink
-                to={ROUTES.DESIGN_SYSTEM}
-                className="px-3 py-2.5 rounded-lg text-xs font-mono text-slate-500 hover:bg-slate-50 flex items-center gap-1.5"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-blue-500" />
-                <span>Design System Spec</span>
-              </NavLink>
             </div>
 
             {/* Mobile CTA */}

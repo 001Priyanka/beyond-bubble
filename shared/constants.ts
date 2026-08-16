@@ -14,7 +14,6 @@ export const ROUTES = {
   PERSPECTIVES: '/perspectives',
   CHALLENGE: '/challenge',
   REFLECTION: '/reflection',
-  DESIGN_SYSTEM: '/design-system',
 } as const;
 
 export type PerspectiveCategory =

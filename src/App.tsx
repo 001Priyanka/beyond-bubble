@@ -9,7 +9,6 @@ import AnalysisPage from './pages/AnalysisPage.js';
 import PerspectivesPage from './pages/PerspectivesPage.js';
 import ChallengePage from './pages/ChallengePage.js';
 import ReflectionPage from './pages/ReflectionPage.js';
-import DesignSystemPage from './pages/DesignSystemPage.js';
 import NotFoundPage from './pages/NotFoundPage.js';
 
 function ScrollToTop() {
@@ -44,7 +43,6 @@ export default function App() {
             <Route path="/perspectives" element={<PerspectivesPage />} />
             <Route path="/challenge" element={<ChallengePage />} />
             <Route path="/reflection" element={<ReflectionPage />} />
-            <Route path="/design-system" element={<DesignSystemPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
